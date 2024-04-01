@@ -15,13 +15,14 @@ const navLinks: NavLinks[] = [
     label: "Mina Böcker",
     url: "/my-books",
   },
+
   {
-    label: "Spelare",
-    url: "player",
+    label: "Kategori",
+    url: "category",
   },
   {
-    label: "Kategory",
-    url: "category",
+    label: "Admin",
+    url: "admin",
   },
   {
     label: "Sök",

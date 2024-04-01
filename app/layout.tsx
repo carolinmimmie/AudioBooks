@@ -1,8 +1,8 @@
 import { GlobalContextProvider } from "./Context/store";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Poppins } from "next/font/google";
 import NavBar from "./components/NavBar";
+
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
@@ -24,8 +24,9 @@ export default function RootLayout({
               <NavBar />
             </header>
             <main>{children}</main>
+            <Footer />
           </div>
-          <Footer />
+       
         </GlobalContextProvider>
       </body>
     </html>

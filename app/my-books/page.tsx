@@ -1,7 +1,5 @@
 "use client";
-import { getAllBooks } from "@/data/api";
-import { IBook } from "@/data/types";
-import React, { useEffect, useState } from "react";
+
 import BookCard from "../components/BookCard";
 import { useGlobalContext } from "../Context/store";
 

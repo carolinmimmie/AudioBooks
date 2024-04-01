@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useGlobalContext } from "./Context/store";
 import Slider from "./components/Slider";
 
+
 export default function Home() {
-  const { books, setBooks } = useGlobalContext();
   return (
     <div className="pt-12 bg-slate-100 ">
       <section className="flex items-center gap-24 w-5/6 m-auto pb-12">
         <div className="flex flex-col items-center gap-6 w-full">
-          <h2>Lyssna på ljudböcker 30 dagar gratis</h2>
+          <h3>Lyssna på ljudböcker 30 dagar gratis</h3>
           <p>
             Njut av en härlig provperiod med hela 20 timmars lyssning och
             läsning helt gratis. Utforska vår fantastiska samling och upptäck

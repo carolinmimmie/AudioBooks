@@ -19,14 +19,21 @@ stilar som kommer att användas globalt i hela projektet. */
     @apply text-3xl text-purple-600;
   }
   h2 {
-    @apply text-2xl uppercase text-black font-semibold mb-4;
+    @apply text-xl uppercase text-black font-semibold;
   }
+  h3 {
+    @apply text-lg;
+  }
+  h4 {
+    @apply text-xs;
+  }
+
   p {
-    @apply leading-6;
+    @apply leading-6 text-base;
   }
 }
 .page-container {
-  @apply pt-10;
+  @apply py-16;
 }
 .button {
   @apply bg-purple-600 hover:bg-purple-800 text-white font-extralight py-2 px-4 rounded;

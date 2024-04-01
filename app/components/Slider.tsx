@@ -45,7 +45,7 @@ const Slider = () => {
   return (
     <div className="bg-white py-10">
       <div className="flex flex-col pb-10 w-5/6 m-auto items-center">
-        <h2 className="pt-8">Trendar just nu</h2>
+        <h3 className="pt-8 mb-4">Trendar just nu</h3>
         <p>
           Upptäck de hetaste böckerna som trendar just nu! Från gripande romaner
           till nervkittlande deckare och inspirerande biografier - dessa böcker

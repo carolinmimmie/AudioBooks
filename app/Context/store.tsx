@@ -18,12 +18,14 @@ import { getAllBooks } from "@/data/api";
 interface ContextProps {
   books: IBook[];
   setBooks: Dispatch<SetStateAction<IBook[]>>;
+  searchBooks: (searchTerm: string) => Promise<void>; // Uppdaterad med sökfunktionen
 }
 
 // Skapa kontexten
 const GlobalContext = createContext<ContextProps>({
   books: [],
   setBooks: () => {}, // En tom funktion för att tillfredsställa Dispatch-kravet
+  searchBooks: async (searchTerm: string) => {}, // Tom funktion för tillfället
 });
 
 interface GlobalContextProviderProps {
@@ -50,8 +52,24 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
     fetchBooks();
   }, []);
 
+  const searchBooks = async (searchTerm: string) => {
+    try {
+      const allBooks = await getAllBooks();
+      const filteredBooks = allBooks.filter(
+        (book) =>
+          book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          book.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setBooks(filteredBooks);
+      console.log(filteredBooks);
+    } catch (error) {
+      console.error("Error searching books:", error);
+    }
+  };
+
   return (
-    <GlobalContext.Provider value={{ books, setBooks }}>
+    <GlobalContext.Provider value={{ books, setBooks, searchBooks }}>
       {children}
     </GlobalContext.Provider>
   );
