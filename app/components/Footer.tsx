@@ -9,7 +9,7 @@ const Footer = () => {
             <h3>Om oss</h3>
             <ul>
               <li>
-                <a href="#">Om BookBeat</a>
+                <a href="#">Om AudioBooks</a>
               </li>
               <li>
                 <a href="#">Press</a>
@@ -72,7 +72,7 @@ const Footer = () => {
                 <a href="#">Sitemap</a>
               </li>
               <li>
-                <a href="#">Prova BookBeat gratis</a>
+                <a href="#">Prova AudioBooks gratis</a>
               </li>
               <li>
                 <a href="#">Kategorier</a>
@@ -87,13 +87,13 @@ const Footer = () => {
                 <a href="#">Familjekonto</a>
               </li>
               <li>
-                <a href="#">Ladda ner BookBeat</a>
+                <a href="#">Ladda ner AudioBooks</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div className="text-center mt-4">©BookBeat AB, 2024</div>
+      <div className="text-center mt-4">©AudioBooks AB, 2024</div>
       <div className="text-center">Sweden</div>
     </footer>
   );

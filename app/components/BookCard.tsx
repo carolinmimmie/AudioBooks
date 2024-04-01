@@ -30,11 +30,11 @@ const BookCard = ({ book }: BookCardProps) => {
         className="object-cover min-w-52 h-48"
       />
       <div className="flex justify-between p-2 relative">
-        <div className="flex flex-col justify-start">
-          <h3>{author}</h3>
-          <p>{title}</p>
+        <div className="flex flex-col justify-start ">
+          <h4>{author}</h4>
+          <p className="text-sm">{title}</p>
         </div>
-        <button>
+        <button onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
