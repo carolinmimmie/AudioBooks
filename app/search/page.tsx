@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../Context/store";
 import BookCard from "../components/BookCard";
 
-
 const Search = () => {
-  const { books, searchBooks } = useGlobalContext();
+  const { booksForSerach, searchBooks } = useGlobalContext();
   const [input, setInput] = useState("");
 
   // här fångas inputvärdet upp och sätts i input variabeln
@@ -45,7 +44,7 @@ const Search = () => {
         </form>
 
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 ">
-          {books.map((book, index) => (
+          {booksForSerach.map((book, index) => (
             <BookCard key={index} book={book} />
           ))}
         </div>

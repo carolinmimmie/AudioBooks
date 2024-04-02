@@ -16,6 +16,7 @@ import { getAllBooks } from "@/data/api";
 
 // Typ för kontextegenskaper
 interface ContextProps {
+  booksForSerach: IBook[];
   books: IBook[];
   setBooks: Dispatch<SetStateAction<IBook[]>>;
   searchBooks: (searchTerm: string) => Promise<void>; // Uppdaterad med sökfunktionen
@@ -23,6 +24,7 @@ interface ContextProps {
 
 // Skapa kontexten
 const GlobalContext = createContext<ContextProps>({
+  booksForSerach: [],
   books: [],
   setBooks: () => {}, // En tom funktion för att tillfredsställa Dispatch-kravet
   searchBooks: async (searchTerm: string) => {}, // Tom funktion för tillfället
@@ -38,7 +40,7 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
   //I koden används useEffect för att hämta bokdata från Firebase och uppdatera den
   // lokala books-variabeln med setBooks. Det garanterar att books alltid reflekterar
   // den senaste datan från Firebase när komponenten renderas eller datan ändras.
-
+  const [booksForSerach, setBooksForSerach] = useState<IBook[]>([]);
   const [books, setBooks] = useState<IBook[]>([]);
 
   // Sedan använder den useEffect för att köra en funktion fetchBooks efter att komponenten
@@ -61,7 +63,7 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
           book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
           book.category.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      setBooks(filteredBooks);
+      setBooksForSerach(filteredBooks);
       console.log(filteredBooks);
     } catch (error) {
       console.error("Error searching books:", error);
@@ -69,7 +71,9 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
   };
 
   return (
-    <GlobalContext.Provider value={{ books, setBooks, searchBooks }}>
+    <GlobalContext.Provider
+      value={{ booksForSerach, books, setBooks, searchBooks }}
+    >
       {children}
     </GlobalContext.Provider>
   );
