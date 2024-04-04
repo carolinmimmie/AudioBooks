@@ -10,7 +10,7 @@ const Library = () => {
 
   return (
     <div className="page-container">
-      <div className="container mx-auto px-14 ">
+      <div className="container mx-auto px-14 min-h-[44rem] ">
         <h2>Biblioteket</h2>
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 ">
           {books.map((book, index) => (

@@ -15,7 +15,7 @@
 To use this application, clone this git repository by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/carolinmimmie/audiobooks-app.git
+git clone https://github.com/carolinmimmie/AudioBooks.git
 
 cd weather-app
 
