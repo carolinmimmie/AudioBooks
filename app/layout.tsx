@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 
 import Footer from "./components/Footer";
 
+
 export const metadata: Metadata = {
   title: "Book App",
   description: "Books app using firebase and next",
@@ -24,9 +25,9 @@ export default function RootLayout({
               <NavBar />
             </header>
             <main>{children}</main>
+         
             <Footer />
           </div>
-       
         </GlobalContextProvider>
       </body>
     </html>

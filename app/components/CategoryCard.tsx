@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React from "react";
 import { useGlobalContext } from "../Context/store";
 
@@ -15,12 +14,12 @@ const CategoryCard = ({ category, onSelect }: CategoryProps) => {
 
   return (
     <div
-      className="bg-purple-600 p-4 flex justify-center"
+      className="bg-purple-600 p-4 flex justify-center items-center rounded-lg shadow-lg "
       onClick={handleClick}
     >
-      <h6 className="text-white ">
+      <h4 className="text-white ">
         {category.charAt(0).toUpperCase() + category.slice(1)}
-      </h6>
+      </h4>
     </div>
   );
 };

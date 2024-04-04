@@ -26,34 +26,37 @@ const Category = () => {
   };
 
   return (
-    <div className="bg-slate-100 py-4">
-      <div className="w-5/6 m-auto">
-        <h2>Kategorier</h2>
-        <div className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {categoryBooks.map((category, index) => (
-            <CategoryCard
-              key={index}
-              category={category}
-              onSelect={handleCategorySelect}
-            />
-          ))}
-        </div>
-      </div>
-      {selectedCategory && (
-        <div className="w-5/6 m-auto mt-8">
-          <h2>{selectedCategory}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {books
-              .filter(
-                (book) =>
-                  book.category.toLowerCase() === selectedCategory.toLowerCase()
-              )
-              .map((book, index) => (
-                <BookCard key={index} book={book} />
-              ))}
+    <div className="page-container">
+      <div className="container mx-auto px-14 min-h-[44rem] ">
+        <div>
+          <h2>Kategorier</h2>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 ">
+            {categoryBooks.map((category, index) => (
+              <CategoryCard
+                key={index}
+                category={category}
+                onSelect={handleCategorySelect}
+              />
+            ))}
           </div>
         </div>
-      )}
+        {selectedCategory && (
+          <div className="mt-8">
+            <h2>{selectedCategory}</h2>
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 ">
+              {books
+                .filter(
+                  (book) =>
+                    book.category.toLowerCase() ===
+                    selectedCategory.toLowerCase()
+                )
+                .map((book, index) => (
+                  <BookCard key={index} book={book} />
+                ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

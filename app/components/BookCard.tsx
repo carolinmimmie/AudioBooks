@@ -24,12 +24,12 @@ const BookCard = ({ book }: BookCardProps) => {
     <div className="rounded-lg shadow-lg bg-white">
       <Image
         src={image}
-        width={400}
+        width={600}
         height={250}
         alt={`Image of ${title}`}
-        className="object-cover min-w-52 h-48"
+        className="object-cover min-w-60 h-48"
       />
-      <div className="flex justify-between p-2 relative">
+      <div className="flex justify-between p-2 relative ">
         <div className="flex flex-col justify-start ">
           <h4>{author}</h4>
           <p className="text-sm">{title}</p>

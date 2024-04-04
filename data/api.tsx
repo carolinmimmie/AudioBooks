@@ -1,3 +1,5 @@
+// ansvarar för att hantera CRUD-operationer (skapa, läsa, uppdatera, radera) 
+//för bokdata i Firestore-databasen samt hantering av filuppladdning till Firebase Storage.
 import {
   addDoc,
   collection,
@@ -9,9 +11,11 @@ import {
   where,
 } from "firebase/firestore";
 import { IBook } from "./types";
-import { db } from "@/firestore-config";
+import { db, storage } from "@/firestore-config";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const booksCollectionFirebase = collection(db, "books");
+// const adminCollectionFirebase = collection(db, "admin");
 
 export const getAllBooks = async () => {
   try {
@@ -26,7 +30,10 @@ export const getAllBooks = async () => {
   }
 };
 
-export const updateBook = async (book: IBook, setBooks: React.Dispatch<React.SetStateAction<IBook[]>>) => {
+export const updateBook = async (
+  book: IBook,
+  setBooks: React.Dispatch<React.SetStateAction<IBook[]>>
+) => {
   try {
     const bookRef = doc(db, "books", book.id);
 
@@ -43,7 +50,38 @@ export const updateBook = async (book: IBook, setBooks: React.Dispatch<React.Set
   }
 };
 
+// en funktion som addera en bok till databasen
+export const addBook = async (
+  book: IBook,
+  imageFile: File,
+  setBooks: React.Dispatch<React.SetStateAction<IBook[]>>
+) => {
+  try {
+    // Uppladdning av bildfilen till Firebase Storage
+    const storageRef = ref(storage, `images/${imageFile.name}`);
+    await uploadBytes(storageRef, imageFile);
+
+    // Hämta nerladdnings-URL för den uppladdade bilden
+    const imageUrl = await getDownloadURL(storageRef);
+
+    // Lägg till boken i Firestore med bildens URL
+    await addDoc(booksCollectionFirebase, {
+      title: book.title,
+      author: book.author,
+      category: book.category,
+      description: book.description,
+      image: imageUrl,
+      liked: book.liked,
+    });
+
+    // Uppdatera bokstaten
+    const updatedBooks = await getAllBooks();
+    setBooks(updatedBooks);
+    console.log("Funkar");
+  } catch (error) {
+    console.log("Funkar inte");
+    console.error("Error adding book:", error);
+  }
+};
 
 export const deleteBook = async () => {};
-
-export const addBook = async () => {};

@@ -9,9 +9,9 @@ const MyBooks = () => {
 
   return (
     <div className="page-container bg-slate-100">
-      <div className="w-5/6 m-auto">
+      <div className="container mx-auto px-14">
       <h2>Dina böcker</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 ">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 ">
         {likedBooks.map((book, index) => (
           <BookCard key={index} book={book} />
         ))}

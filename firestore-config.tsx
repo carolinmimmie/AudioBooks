@@ -1,5 +1,6 @@
 import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 // Konfiguration för din Firebase-projekt
 const firebaseConfig = {
@@ -13,6 +14,8 @@ const firebaseConfig = {
 
 // Initialisera Firebase-appen
 const app = initializeApp(firebaseConfig);
+
+export const storage = getStorage(app);
 
 // Hämta Firestore-databasen
 export const db = getFirestore(app);

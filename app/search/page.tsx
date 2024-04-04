@@ -28,15 +28,15 @@ const Search = () => {
   };
 
   return (
-    <div className="page-container">
-      <div className="w-5/6 m-auto">
+    <div className="page-container ">
+      <div className="container mx-auto px-14 min-h-[44rem] ">
         <h2>Hitta en bra bok</h2>
         <form>
-          <div className="flex items-center   py-2">
+          <div className="flex items-center py-2">
             <input
-              className="outborder- w-full text-gray-700 focus:outline-none py-2"
+              className="outborder- w-full text-gray-700 focus:outline-none py-2 "
               type="text"
-              placeholder="Sök efter en boktitel, författare eller kategori."
+              placeholder="Sök efter en boktitel, författare eller kategori"
               value={input}
               onChange={handleInputChange}
             />

@@ -32,7 +32,6 @@ const Slider = () => {
       // Greppa tag i diven som vi lagt useRef slider på
       const container = slider.current.querySelector(".overflow-x-auto"); // Gå in och välj det första elementet som har klassen ".overflow-x-auto"
       if (container) {
-        
         const elementWidth = container.scrollWidth / 3; // Beräkna bredden på containern och dela den med 3 för att få bredden på varje element
         container.scrollTo({
           // Använd scrollTo-funktionen på containern för att scrolla horisontellt
@@ -44,8 +43,8 @@ const Slider = () => {
 
   return (
     <div className="bg-white py-10">
-      <div className="flex flex-col pb-10 w-5/6 m-auto items-center">
-        <h3 className="pt-8 mb-4">Trendar just nu</h3>
+      <div className="flex flex-col py-8 gap-6 container mx-auto px-14 items-start">
+        <h3>Trendar just nu</h3>
         <p>
           Upptäck de hetaste böckerna som trendar just nu! Från gripande romaner
           till nervkittlande deckare och inspirerande biografier - dessa böcker
@@ -56,7 +55,7 @@ const Slider = () => {
       </div>
       <div className="relative" ref={slider}>
         <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth ">
-          <div className="flex gap-2">
+          <div className="flex gap-1">
             {books.map((book, index) => (
               <div key={index} className="flex">
                 <BookCard book={book} />

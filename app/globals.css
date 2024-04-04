@@ -9,6 +9,9 @@ stilar som kommer att användas globalt i hela projektet. */
   h2,
   h3,
   h4,
+  p,
+  button,
+  input,
   label {
     font-family: Oswald, Proxima Nova, system-ui, sans-serif;
   }
@@ -16,25 +19,28 @@ stilar som kommer att användas globalt i hela projektet. */
     font-family: Merriweather, Proxima Nova, sans-serif, text-gray-950;
   }
   h1 {
-    @apply text-3xl text-purple-600;
+    @apply text-2xl lg:text-4xl text-purple-600 font-bold;
   }
   h2 {
-    @apply text-xl uppercase text-black font-semibold;
+    @apply text-xl md:text-2xl  uppercase text-black font-semibold;
   }
   h3 {
-    @apply text-xl;
+    @apply text-xl md:text-2xl;
   }
   h4 {
     @apply text-base;
   }
-
   p {
-    @apply leading-6 text-base;
+    @apply text-sm md:text-base tracking-wider leading-8;
+  }
+  input {
+    @apply w-full text-gray-700 focus:outline-none p-2 bg-slate-200;
   }
 }
+
 .page-container {
-  @apply py-16;
+  @apply bg-slate-100 pt-8 pb-16;
 }
 .button {
-  @apply bg-purple-600 hover:bg-purple-800 text-white font-extralight py-2 px-4 rounded;
+  @apply bg-purple-600 hover:bg-purple-800 text-white font-extralight py-2 px-8 rounded cursor-pointer;
 }

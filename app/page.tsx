@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Slider from "./components/Slider";
-
+import Divider from "./components/Divider";
 
 export default function Home() {
   return (
     <div className="pt-12 bg-slate-100 ">
-      <section className="flex items-center gap-24 w-5/6 m-auto pb-12">
-        <div className="flex flex-col items-center gap-6 w-full">
+      <section className="container mx-auto px-14 flex flex-col gap-4 py-8 lg:flex lg:flex-row lg:items-center lg:gap-8  lg:pb-10">
+        <div className="flex flex-col items-start gap-6 w-full">
           <h3>Lyssna på ljudböcker 30 dagar gratis</h3>
           <p>
             Njut av en härlig provperiod med hela 20 timmars lyssning och
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="w-full">
           <Image
-            width={800}
+            width={575}
             height={500}
             src="/images/header.jpg"
             alt="purple book"
@@ -32,6 +32,7 @@ export default function Home() {
       <section>
         <Slider />
       </section>
+      <Divider />
     </div>
   );
 }
