@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { FormatColorResetRounded } from "@mui/icons-material";
 interface NavLinks {
   label: string;
   url: string;
@@ -40,21 +39,22 @@ const NavBar = () => {
 
   // Funktion för att öppna eller stänga hamburgermenyn
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // omvänd värdet av isOpen (true blir flase och vice versa)
+    setIsOpen(!isOpen); // switshar mellan värdet true/false
   };
 
-  const closeMenu = () => {
-    setIsOpen(true);
-  };
   // hantera klicket på vald länk och kör setActiveLink
   const handleSetActiveLink = (url: string) => {
     setActiveLink(url);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   const getMenuClasses = () => {
     let menuClasses = [];
-    // om menybn är öppen sätt denna klass på diven som omsluter navlänkarna.
-    if (!isOpen) {
+    // om menyn är öppen sätt denna klass på diven som omsluter navlänkarna.
+    if (isOpen) {
       menuClasses = [
         "flex",
         "absolute",
@@ -83,7 +83,7 @@ const NavBar = () => {
         // visa ikonerna med från screen md: gör den osynlig*/}
         <div className="md:hidden flex items-center">
           <button onClick={toggleMenu}>
-            {isOpen ? (
+            {!isOpen ? (
               <Image
                 width={20}
                 height={20}
@@ -113,7 +113,9 @@ const NavBar = () => {
               }`}
               onClick={() => {
                 handleSetActiveLink(link.url);
-                closeMenu();
+                {
+                  closeMenu();
+                }
               }}
             >
               {link.label}
